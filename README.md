@@ -15,7 +15,6 @@ https://multi-step-forms-chi.vercel.app/
 1. Clone the repository:
     ```bash
     git clone https://git@github.com:DuxEva/multi-step-form.git
-    cd subscription-management-app
     ```
 
 2. Install dependencies:
