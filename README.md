@@ -1,6 +1,7 @@
-# Angular Subscription Management App
 
-This Angular application allows users to fill personal inforamation, select plans and add-ons, and view a summary of their selections with a calculated total price.
+## Hosted Link
+
+https://multi-step-forms-chi.vercel.app/
 
 ## Table of Contents
 
@@ -55,5 +56,3 @@ This component manages the navigation between different steps of the subscriptio
   </ng-container>
 </div>
 ```
-
-this is the Link to the repo: https://angularmultistepform.netlify.app/
