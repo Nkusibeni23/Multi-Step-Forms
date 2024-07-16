@@ -1,0 +1,45 @@
+<div class="font-[Ubuntu] max-md:p-2">
+  <h1
+    class="text-4xl max-sm:text-3xl max-md:text-4xl font-bold text-[var(--marine-blue)] mt-5 max-sm:mt-4 max-md:mt-2"
+  >
+    Personal info
+  </h1>
+  <p class="text-xl mt-5 max-md:mt-2 max-md:text-lg text-[var(--cool-gray)]">
+    Please provide your name, email address, and phone number.
+  </p>
+  <form [formGroup]="form" class="mt-5" action="">
+    <div
+      class="mb-4 max-sm:mb-3 max-md:mb-5"
+      *ngFor="let formField of formFields; let i = index"
+    >
+      <div class="w-full flex justify-between items-center mb-3">
+        <label class="block text-[var(--marine-blue)]" for="firstName">
+          {{ formField.label }}
+        </label>
+        <p
+          *ngIf="
+            (form?.controls)![formField.name].invalid &&
+            (form?.controls)![formField.name].touched
+          "
+          class="text-[var(--strawberry-red)] text-right"
+        >
+          {{ formField.name }} is required
+        </p>
+      </div>
+      <input
+        class="{{
+          form.controls[formField.name].invalid &&
+          form.controls[formField.name].touched
+            ? 'border-[var(--strawberry-red)]'
+            : 'border-[var(--light-gray)]'
+        }} focus:outline-none border-2 w-full px-2 py-3 max-md:py-4 rounded-lg max-sm:placeholder:text-sm placeholder:text-lg placeholder:font-semibold text-xl"
+        formControlName="formField.name"
+        [type]="formField.type"
+        [id]="formField.id"
+        [name]="formField.name"
+        [formControlName]="formField.name"
+        [placeholder]="formField.placeholder"
+      />
+    </div>
+  </form>
+</div>

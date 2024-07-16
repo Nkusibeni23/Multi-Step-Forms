@@ -1,0 +1,70 @@
+<div class="font-[Ubuntu] max-md:p-2 min-h-[60%]">
+  <h1
+    class="text-4xl max-sm:text-3xl max-md:text-4xl font-bold text-[var(--marine-blue)] mt-2"
+  >
+    Finishing up
+  </h1>
+  <p class="text-xl mt-2 max-md:text-lg text-[var(--cool-gray)]">
+    Double-check everything looks OK before confirming.
+  </p>
+
+  <div class="w-full mt-3 border bg-[var(--light-gray)] rounded-lg">
+    <div
+      class="max-md:w-full flex justify-between items-center h-fit p-4"
+      *ngIf="selectedPlan"
+    >
+      <div>
+        <h2
+          class="text-xl max-md:text-lg font-semibold text-[var(--marine-blue)] mb-1 max-md:mb-0"
+        >
+          {{ selectedPlan.name }} ({{
+            selectedPlan.isMonthly ? "Monthly" : "Yearly"
+          }})
+        </h2>
+        <button
+          class="text-[var(--cool-gray)] hover:text-[var(--purplish-blue)] hover:underline"
+        >
+          change
+        </button>
+      </div>
+      <p>
+        $
+        {{
+          selectedPlan.isMonthly
+            ? selectedPlan.pricePerMonth + "/mo"
+            : selectedPlan.pricePerYear + "/yr"
+        }}
+      </p>
+    </div>
+    <div class="w-[95%] mx-auto h-[1px] bg-[var(--cool-gray)]"></div>
+
+    <div
+      class="max-md:w-full flex justify-between items-center h-fit p-4"
+      *ngFor="let addOn of selectedAddOns"
+    >
+      <div>
+        <p
+          class="max-md:text-lg font-light text-[var(--cool-gray)] mb-1 max-md:mb-0"
+        >
+          {{ addOn.type }}
+        </p>
+      </div>
+      <p>
+        {{ selectedPlan?.isMonthly ? addOn.pricePerMonth : addOn.pricePerYear }}
+      </p>
+    </div>
+  </div>
+
+  <div class="max-md:w-full flex justify-between items-center h-fit p-4 mt-2">
+    <div>
+      <h2
+        class="text-xl max-md:text-lg text-[var(--cool-gray)] mb-1 max-md:mb-0"
+      >
+        Total ({{ selectedPlan?.isMonthly ? "per month" : "per year" }})
+      </h2>
+    </div>
+    <p class="text-[var(--purplish-blue)] font-bold text-xl">
+      ${{ totalPrice }} {{ selectedPlan?.isMonthly ? "/mo" : "/yr" }}
+    </p>
+  </div>
+</div>

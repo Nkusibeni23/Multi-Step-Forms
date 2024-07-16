@@ -1,0 +1,66 @@
+<div class="w-full font-[Ubuntu] p-3 h-fit">
+  <div>
+    <h1
+      class="text-4xl max-md:text-3xl font-bold text-[var(--marine-blue)] mt-5 max-md:mt-2"
+    >
+      Select your plan
+    </h1>
+    <p class="text-xl mt-5 max-md:mt-2 max-md:text-lg text-[var(--cool-gray)]">
+      You have the option of monthly or yearly billing.
+    </p>
+  </div>
+  <div class="w-full mt-14 max-md:mt-5">
+    <div class="flex flex-wrap gap-6 items-center justify-center mt-5 w-full">
+      <!-- Iterate through plans -->
+      <div
+        *ngFor="let selectPlan of selectPlans; let i = index"
+        (click)="toggleSelectPlan(i)"
+        class="h-48 w-44 max-md:w-full border-2 rounded-lg p-5 flex flex-col justify-between items-center cursor-pointer transition-all {{
+          selectPlan.isSelected
+            ? 'border-[var(--purplish-blue)]'
+            : 'border-[var(--light-gray)]'
+        }}"
+      >
+        <div class="h-12 w-12">
+          <img [src]="selectPlan.imageUrl" alt="Plan Image" class="w-full" />
+        </div>
+        <div class="text-center">
+          <h2
+            class="text-xl max-md:text-lg font-semibold text-[var(--marine-blue)] mb-1"
+          >
+            {{ selectPlan.name }}
+          </h2>
+          <p class="text-[var(--cool-gray)]">
+            ${{
+              perMonth ? selectPlan.pricePerMonth : selectPlan.pricePerYear
+            }}/{{ perMonth ? "mo" : "yr" }}
+          </p>
+          <p
+            class="mt-2 text-[var(--cool-gray)] text-sm"
+            [ngClass]="{ hidden: perMonth, block: !perMonth }"
+          >
+            2 months free
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      (click)="togglePlanPeriod()"
+      class="h-12 w-full border mt-10 bg-[var(--light-gray)] rounded-lg flex justify-center items-center gap-4 cursor-pointer"
+    >
+      <h1>Monthly</h1>
+      <div
+        class="w-12 h-7 bg-[var(--marine-blue)] p-1 flex items-center rounded-full"
+      >
+        <div
+          class="w-5 h-5 bg-[var(--white)] rounded-full transition-all duration-300"
+          [ngClass]="{
+            'translate-x-0': perMonth,
+            'translate-x-full': !perMonth
+          }"
+        ></div>
+      </div>
+      <h1>Yearly</h1>
+    </div>
+  </div>
+</div>

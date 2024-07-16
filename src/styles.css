@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("../public/assets/fonts/font.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* variables */
+  --transition-duration: 500ms;
+  --border-radius: 10px;
+  --primary-color: var(--marine-blue);
+  --accent-color: var(--purplish-blue);
+  --secondary-color: var(--cool-gray);
+
+  /* neutral colors */
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(231, 100%, 99%);
+  --white: hsl(0, 0%, 100%);
+
+  /* accent colors */
+  --marine-blue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(215, 100%, 97%);
+  --strawberry-red: hsl(354, 84%, 57%);
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 400;
+  src: url("./app/assets/fonts/Ubuntu-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 500;
+  src: url("./app/assets/fonts/Ubuntu-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+  font-weight: 700;
+  src: url("./app/assets/fonts/Ubuntu-Bold.ttf");
+}
+
+body {
+  font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
+  color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-gray);
+}

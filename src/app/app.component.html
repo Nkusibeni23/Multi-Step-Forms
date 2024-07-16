@@ -1,0 +1,65 @@
+<div
+  class="flex justify-center items-center w-full h-screen bg-[var(--light-blue)] relative"
+>
+  <div
+    class="flex max-md:flex-col max-md:items-center max-md:gap-0 max-lg:gap-10 gap-10 w-[70%] max-lg:w-[90%] max-md:w-full max-md:h-full border bg-[var(--white)] max-md:bg-[var(--white)] rounded-xl p-3 max-md:p-0"
+  >
+    <div class="w-[35%] max-lg:w-[45%] max-md:h-52 max-md:w-full">
+      <sidebar></sidebar>
+    </div>
+    <div
+      class="flex flex-col justify-between px-3 py-7 w-[65%] max-md:w-[95%] max-md:px-0 max-md:py-0 max-md:-mt-24"
+    >
+      <div
+        class="max-md:w-full bg-[var(--white)] max-md:rounded-lg max-md:shadow-lg max-md:border-2"
+      >
+        <form-personnel
+          *ngIf="counter === 1"
+          (isValidated)="handleIsValidated($event)"
+          [triggerValidation]="triggerValidation"
+        >
+        </form-personnel>
+        <select-plan *ngIf="counter === 2"></select-plan>
+        <add-ons *ngIf="counter === 3"></add-ons>
+        <app-summary *ngIf="counter === 4"></app-summary>
+        <app-thank-you
+          *ngIf="counter === 5"
+          class="text-center text-2xl text-[var(--marine-blue)] font-['Ubuntu']"
+        >
+          Thank you for signing up!
+        </app-thank-you>
+      </div>
+      <div
+        class="w-full max-md:fixed max-md:bottom-0 max-md:right-0 max-md:h-16 max-md:bg-[var(--white)] flex items-center"
+      >
+        <div
+          class="max-md:w-[90%] max-md:mx-auto flex justify-between items-center h-12 max-md:h-18 w-full mt-8 max-md:mt-0 {{
+            counter === 5 ? 'hidden' : ''
+          }}"
+        >
+          <div class="block">
+            <button
+              class="px-5 py-3 text-[var(--white)] bg-gray-200 rounded-lg"
+              *ngIf="counter !== 1"
+              (click)="prevStep()"
+            >
+              <span class="font-medium text-base text-gray-600 font-['Ubuntu']"
+                >Go Back</span
+              >
+            </button>
+          </div>
+          <button
+            class="px-5 py-3 text-[var(--white)] rounded-lg {{
+              counter === 5
+                ? 'bg-[var(--purplish-blue)]'
+                : 'bg-[var(--marine-blue)]'
+            }}"
+            (click)="nextStep()"
+          >
+            <span class="font-medium text-base font-['Ubuntu']">Next Step</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

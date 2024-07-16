@@ -1,0 +1,36 @@
+<div class="flex flex-col gap-7 max-md:flex-row max-md:gap-4">
+  <div
+    class="flex items-center w-full gap-4"
+    *ngFor="let step of steps; let i = index"
+  >
+    <div
+      class="w-12 h-12 rounded-full border border-[var(--white)] flex items-center justify-center {{
+        counter === step.counter
+          ? 'bg-[var(--light-blue)] border-[var(--light-blue)]'
+          : ''
+      }}"
+    >
+      <h1
+        class="text-base {{
+          counter === step.counter
+            ? 'text-[var(--marine-blue)]'
+            : 'text-[var(--white)]'
+        }} font-['Ubuntu']"
+      >
+        {{ step.counter }}
+      </h1>
+    </div>
+    <div class="flex flex-col max-md:hidden">
+      <h1
+        class="text-base font-light uppercase text-[var(--cool-gray)] font-['Ubuntu']"
+      >
+        {{ step.step }}
+      </h1>
+      <h1
+        class="text-lg uppercase font-semibold text-[var(--white)] font-['Ubuntu']"
+      >
+        {{ step.title }}
+      </h1>
+    </div>
+  </div>
+</div>
