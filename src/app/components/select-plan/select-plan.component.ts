@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StepCounterService } from '../../services/step-counter.service';
 
 interface SelectPlan {
@@ -8,26 +8,15 @@ interface SelectPlan {
   pricePerMonth: number;
   pricePerYear: number;
   isSelected: boolean;
-  amountPerMonth?: number;
-  amountPerYear?: number;
 }
 
 @Component({
   selector: 'select-plan',
   templateUrl: './select-plan.component.html',
-  styleUrl: './select-plan.component.css',
+  styleUrls: ['./select-plan.component.css'],
 })
-export class SelectPlanComponent {
+export class SelectPlanComponent implements OnInit {
   perMonth: boolean = true;
-  selectPlan: SelectPlan = {
-    id: 0,
-    name: '',
-    imageUrl: '',
-    pricePerMonth: 0,
-    pricePerYear: 0,
-    isSelected: false,
-  };
-
   selectPlans: SelectPlan[] = [
     {
       id: 1,
