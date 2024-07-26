@@ -27,7 +27,7 @@ export class AddOnsComponent implements OnInit {
 
   toggleAddOn(index: number): void {
     this.addOns[index].isChosen = !this.addOns[index].isChosen;
-    this.addOns[index]
+    this.addOns[index];
     this.stepService.setAddOns(this.addOns);
   }
 }
